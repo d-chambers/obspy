@@ -8,10 +8,9 @@ on:
     branches:
       - master
 
+# Set globally scoped environmental variables.
 env:
-  CI_URL: https://github.com/obspy/obspy/actions/runs/${{ github.run_id }}
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+  OBSPY_GITHUB_BRANCH: gh-actions
 
 jobs:
   network_tests:

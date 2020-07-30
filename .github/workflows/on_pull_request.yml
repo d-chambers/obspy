@@ -1,4 +1,8 @@
-name: pull_request_validate
+# This workflow runs on all pull requests. It has the following functions:
+#   1. Apply flake8 to the codebase for linting
+#   2. Run tests as specified in the test suite.
+
+name: pull_request
 on: pull_request
 
 # Set globally scoped environmental variables.
