@@ -1,4 +1,4 @@
-name: validate
+name: pull_request_validate
 on: pull_request
 
 # Set globally scoped environmental variables.
@@ -7,7 +7,7 @@ env:
   PR_URL: https://github.com/obspy/obspy/pull/${{ github.event.pull_request.number }}
   CI_URL: https://github.com/obspy/obspy/actions/runs/${{ github.run_id }}
   CONFIG_PATH: obspy_ci_config/conf.json
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}F
   OBSPY_GITHUB_BRANCH: gh-actions
 
 
