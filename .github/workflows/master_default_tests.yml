@@ -50,8 +50,8 @@ jobs:
         run: |
           export MODULELIST=`obshub get-module-list --group default --sep ','`
           export MODULELISTSPACES=`obshub get-module-list --group default --sep ' '`
-          echo $MODULELIST
-          echo $MODULELISTSPACES
+          echo "${MODULELIST}"
+          echo "${MODULELISTSPACES}"
           coverage run --rcfile=.coveragerc --source=${MODULELIST} -m obspy.scripts.runtests --no-flake8 -n gh-actions -r --ci-url="${CI_URL}" $MODULELISTSPACES
           coverage xml -o coverage.xml
 
