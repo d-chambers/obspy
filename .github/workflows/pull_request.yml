@@ -79,7 +79,7 @@ jobs:
     needs: get_ci_config
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [macos-latest,]
         python-version: [3.7, 3.8]
 
     steps:
@@ -113,6 +113,9 @@ jobs:
         shell: bash -l {0}
         run : |
           pip install git+https://github.com/obspy/obspy_github_api@${OBSPY_GITHUB_BRANCH}
+
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
 
       - name: run test suite
         shell: bash -l {0}
