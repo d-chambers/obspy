@@ -122,6 +122,7 @@ jobs:
       - name: print package info
 #        shell: bash -l {0}
         run: |
+          pip install --upgrade numpy --user
           python -m pip list
           python --version
 
@@ -131,6 +132,7 @@ jobs:
           export PATH="$pythonLocation/bin/:$PATH"
           export MODULELIST=`obshub read-config-value module_list --path=${CONFIG_PATH}`
           export MODULELISTSPACES=`obshub read-config-value module_list_spaces --path=${CONFIG_PATH}`
+          
           coverage run --rcfile=.coveragerc --source=${MODULELIST} -m obspy.scripts.runtests --no-flake8 -n gh-actions -r --ci-url="${CI_URL}" --pr-url="${PR_URL}" $MODULELISTSPACES
 
       - name: parse coverage results
