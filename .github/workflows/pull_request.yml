@@ -124,15 +124,6 @@ jobs:
           export PATH="$pythonLocation/bin/:$PATH"
           python -m pip install git+https://github.com/obspy/obspy_github_api@${OBSPY_GITHUB_BRANCH}
 
-
-
-
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v1
-
-
-
-
       - name: run test suite
         shell: bash -l {0}
         run: |
