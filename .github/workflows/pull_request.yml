@@ -124,6 +124,7 @@ jobs:
         run: |
           python -m pip list
           python --version
+          python obspy/scripts/runtests.py
 
       - name: run test suite
 #        shell: bash -l {0}

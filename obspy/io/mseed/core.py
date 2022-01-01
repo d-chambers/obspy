@@ -316,6 +316,7 @@ def _read_mseed(mseed_object, starttime=None, endtime=None, headonly=False,
     # Small function to check whether an array of ASCII values contains only
     # digits.
     def isdigit(x):
+        np.max
         return True if (x - min_ascii).max() <= 9 else False
 
     while True:
