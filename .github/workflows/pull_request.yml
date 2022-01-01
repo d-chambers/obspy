@@ -122,8 +122,6 @@ jobs:
       - name: print package info
 #        shell: bash -l {0}
         run: |
-          python -m pip uninstall numpy -y
-          python -m pip install "numpy==1.20.0"
           python -m pip list
           python --version
 
