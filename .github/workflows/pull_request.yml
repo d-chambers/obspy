@@ -122,7 +122,7 @@ jobs:
       - name: print package info
 #        shell: bash -l {0}
         run: |
-          pip install --upgrade numpy --user
+          python -m pip install --upgrade scipy
           python -m pip list
           python --version
 
