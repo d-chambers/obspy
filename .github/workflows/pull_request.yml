@@ -102,12 +102,6 @@ jobs:
           export PATH="$pythonLocation/bin/:$PATH" # This is workaround for actions/setup-python#132
           python -m pip install coverage pyimgur
 
-      - name: print package info
-#        shell: bash -l {0}
-        run: |
-          python -m pip list
-          python --version
-
       - name: download test config
         uses: actions/download-artifact@v2.0.9
         with:
@@ -124,6 +118,12 @@ jobs:
         run: |
           export PATH="$pythonLocation/bin/:$PATH"
           python -m pip install git+https://github.com/obspy/obspy_github_api@${OBSPY_GITHUB_BRANCH}
+
+      - name: print package info
+#        shell: bash -l {0}
+        run: |
+          python -m pip list
+          python --version
 
       - name: run test suite
 #        shell: bash -l {0}
