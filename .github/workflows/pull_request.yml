@@ -74,13 +74,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-#        os: [ubuntu-latest, macos-latest, windows-latest]
-#        python-version: ['3.7', '3.8', '3.9', '3.10']
-
-        os: [ ubuntu-latest ]
-        python-version: [ '3.8' ]
-
-
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python-version: ['3.7', '3.8', '3.9', '3.10']
 
         include:
           - os: ubuntu-latest
@@ -124,6 +119,11 @@ jobs:
       - name: Update environment
         run: mamba env update -n test${{ matrix.python-version }} -f .github/test_conda_env-${{ matrix.python-version }}.yml
         if: steps.cache.outputs.cache-hit != 'true'
+
+        # reinstall libffi to avoid python 3,8 failures in pk_baer
+      - name: fix lib
+        if: matrix.os == 'ubuntu-latest' && matrix.python_version == '3.8'
+        run: install -c conda-forge libffi=3.3.*
 
       - name: print package info
         shell: bash -l {0}
