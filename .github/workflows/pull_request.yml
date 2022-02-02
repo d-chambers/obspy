@@ -120,12 +120,6 @@ jobs:
         run: mamba env update -n test${{ matrix.python-version }} -f .github/test_conda_env-${{ matrix.python-version }}.yml
         if: steps.cache.outputs.cache-hit != 'true'
 
-        # reinstall libffi to avoid python 3,8 failures in pk_baer
-      - name: fix lib
-        shell: bash -l {0}
-        if: matrix.os == 'ubuntu-latest' && matrix.python_version == '3.8'
-        run: install -c conda-forge libffi=3.3.*
-
       - name: print package info
         shell: bash -l {0}
         run: |
@@ -136,6 +130,12 @@ jobs:
         shell: bash -l {0}
         run: |
           python -m pip install -e .[tests]
+
+        # reinstall libffi to avoid python 3,8 failures in pk_baer
+      - name: fix lib
+        shell: bash -l {0}
+        if: matrix.os == 'ubuntu-latest' && matrix.python_version == '3.8'
+        run: install -c conda-forge libffi=3.3.*
 
       - name: run default tests
         id: tests
