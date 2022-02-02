@@ -8,7 +8,6 @@ Base utilities and constants for ObsPy.
     GNU Lesser General Public License, Version 3
     (https://www.gnu.org/copyleft/lesser.html)
 """
-import doctest
 import glob
 import importlib
 import inspect
@@ -25,7 +24,6 @@ from pathlib import PurePath
 
 import numpy as np
 import pkg_resources
-import requests
 from pkg_resources import get_entry_info, iter_entry_points
 
 from obspy.core.util.misc import to_int_or_zero, buffered_load_entry_point
@@ -406,7 +404,7 @@ NUMPY_VERSION = get_dependency_version('numpy')
 SCIPY_VERSION = get_dependency_version('scipy')
 MATPLOTLIB_VERSION = get_dependency_version('matplotlib')
 BASEMAP_VERSION = get_dependency_version('basemap')
-PROJ4_VERSION = get_proj_version()
+PROJ4_VERSION = get_dependency_version('pyproj')
 CARTOPY_VERSION = get_dependency_version('cartopy')
 
 
@@ -631,6 +629,7 @@ def download_to_file(url, filename_or_buffer, chunk_size=1024):
     :param chunk_size: The chunk size in bytes.
     :type chunk_size: int
     """
+    import requests
     # Workaround for old request versions.
     try:
         r = requests.get(url, stream=True)
@@ -787,4 +786,5 @@ class CatchAndAssertWarnings(warnings.catch_warnings):
 
 
 if __name__ == '__main__':
+    import doctest
     doctest.testmod(exclude_empty=True)
