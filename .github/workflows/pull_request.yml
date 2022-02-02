@@ -135,7 +135,7 @@ jobs:
       - name: fix libffi
         shell: bash -l {0}
         if: runner.os == 'Linux'
-        run: install libffi=3.3.*
+        run: conda install libffi=3.3.*
 
       - name: run default tests
         id: tests
