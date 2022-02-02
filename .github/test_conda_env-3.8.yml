@@ -19,6 +19,7 @@ dependencies:
   - requests
   - sqlalchemy
   - cryptography
+  - libffi=3.3.*
   - pip:
       - pyimgur
       - -e..

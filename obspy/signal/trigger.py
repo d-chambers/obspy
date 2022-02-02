@@ -24,9 +24,9 @@ characteristic functions and a coincidence triggering routine.
     GNU Lesser General Public License, Version 3
     (https://www.gnu.org/copyleft/lesser.html)
 """
-from collections import deque
 import ctypes as C  # NOQA
 import warnings
+from collections import deque
 
 import numpy as np
 import scipy
