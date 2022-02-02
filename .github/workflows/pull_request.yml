@@ -134,7 +134,7 @@ jobs:
         # reinstall libffi to avoid python 3,8 failures in pk_baer
       - name: fix lib
         shell: bash -l {0}
-        if: matrix.os == 'ubuntu-latest' && matrix.python_version == '3.8'
+        if: ${{ matrix.python_version == '3.8' && matrix.os == ubuntu-latest }}
         run: install -c conda-forge libffi=3.3.*
 
       - name: run default tests
