@@ -148,7 +148,7 @@ jobs:
 
       - name: optionally upload image directory
         if: always() && (steps.tests.outcome == 'success' || steps.tests.outcome == 'failure') && contains(github.event.pull_request.labels.*.name, 'upload_images')
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: "images_${{ github.event.pull_request.number }}_${{ matrix.python-version }}_${{ matrix.os }}"
           path: obspy/obspy_test_images
@@ -239,7 +239,7 @@ jobs:
 
       - name: optionally upload image directory
         if: always() && (steps.tests.outcome == 'success' || steps.tests.outcome == 'failure') && contains(github.event.pull_request.labels.*.name, 'upload_images')
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: "images_${{ github.event.pull_request.number }}_${{ matrix.python-version }}_${{ matrix.os }}_network"
           path: obspy/obspy_test_images
