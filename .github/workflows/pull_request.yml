@@ -137,7 +137,7 @@ jobs:
           obspy-runtests --cov obspy --cov-report='xml' --cov-append --keep-images --report
 
       - name: upload coverage
-        uses: codecov/codecov-action@v2.1.0
+        uses: codecov/codecov-action@v3.1.1
         if: always() && (steps.tests.outcome == 'success' || steps.tests.outcome == 'failure')
         with:
           flags: unittests
@@ -228,7 +228,7 @@ jobs:
           obspy-runtests --cov obspy --cov-report='xml' --cov-append --keep-images --report --network
 
       - name: upload coverage
-        uses: codecov/codecov-action@v2.1.0
+        uses: codecov/codecov-action@v3.1.1
         if: always() && (steps.tests.outcome == 'success' || steps.tests.outcome == 'failure')
         with:
           flags: unittests
