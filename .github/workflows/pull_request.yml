@@ -37,7 +37,7 @@ jobs:
             "target_url": "https://tests.obspy.org/?pr=${{ github.event.pull_request.number }}"
             }'
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3.1.0
         with:
           fetch-depth: 0
 
@@ -90,7 +90,7 @@ jobs:
             prefix: C:\Miniconda3\envs\test
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3.1.0
         with:
           fetch-depth: 0
 
@@ -181,7 +181,7 @@ jobs:
             prefix: C:\Miniconda3\envs\test
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3.1.0
         with:
           fetch-depth: 0
 
